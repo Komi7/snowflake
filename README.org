@@ -11,3 +11,5 @@
   $ sudo rm -r /etc/nixos/configuration.nix
   /* move config to desired location */
 #+end_src
+
+[[file:dotfile/nixos.org]]
