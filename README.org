@@ -1,8 +1,7 @@
 
-
- Flake on fresh install
+** Flake on fresh install
 - Boot into ISO
-```
+#+begin_src
   $ sudo su
   # nix-env -iA nixos.git
   # git clone <repo url> /mnt/<path>
@@ -11,4 +10,4 @@
   /* login */
   $ sudo rm -r /etc/nixos/configuration.nix
   /* move config to desired location */
-```
+#+end_src
