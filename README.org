@@ -12,4 +12,4 @@
   /* move config to desired location */
 #+end_src
 
-[[file:dotfile/nixos.org]]
+[[file:NixOS Fresh Install Guide]](https://github.com/Komi7/snowflake/edit/main/dotfile/nixos.org)
