@@ -4,7 +4,7 @@
 
 #+attr_html: :width 800
 #+attr_org: :width 800
-[[file:dotfile/NixOS.svg]]
+[[file:NixOS.svg]]
 
 * Table of Content
 :PROPERTIES:
