@@ -133,5 +133,9 @@ nix = {
     experimental-features = nix-command flakes
   '';
 };
+  #Fonts conf
+  fonts.fonts = with pkgs; [
+  (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "Hack" ]; })
+];
 
 }
