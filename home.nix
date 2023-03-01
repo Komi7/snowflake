@@ -30,4 +30,5 @@
 
   #FONTS
   fonts.fontconfig.enable = true;
+
 }

@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./fonts.nix
     ];
 
   # Bootloader.
@@ -133,9 +134,9 @@ nix = {
     experimental-features = nix-command flakes
   '';
 };
-  #Fonts conf
-  fonts.fonts = with pkgs; [
-  (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "Hack" ]; })
-];
+  # Fonts conf
+  # fonts.fonts = with pkgs; [
+ # (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "Hack" ]; })
+# ];
 
 }

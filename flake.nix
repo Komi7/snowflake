@@ -20,7 +20,7 @@
       nixosConfigurations = {
          nix = lib.nixosSystem {
           inherit system pkgs;
-          modules = [ 
+          modules = [
             ./configuration.nix
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
