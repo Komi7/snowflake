@@ -1,0 +1,47 @@
+#+title: NixOS Fresh Install Guide
+#+description: A basic introductional guide on building a NixOS config on your personal machine
+#+author: shousuke
+
+
+**** Terminal: Parted
+*These step are for a fresh installation. Not dual boot*
+#+begin_src
+  # parted /dev/sda -- mklabel gpt
+  # parted /dev/sda -- mkpart primary 512MiB -8GiB
+  # parted /dev/sda -- mkpart primary linux-swap -8GiB 100%
+
+  /* extra for UEFI */
+  # parted /dev/sda -- mkpart ESP fat32 1Mib 512MiB
+  # parted /dev/sda -- set 3 esp on
+
+  # mkfs.ext4 -L nixos /dev/sda1
+  # mkswap -L swap /dev/sda2
+
+  /* extra for UEFI */
+  # mkfs.fat -F 32 -n boot /dev/sda3
+#+end_src
+
+
+**** Mounting
+#+begin_src
+  # mount /dev/disk/by-label/nixos /mnt
+
+  /* extra for UEFI */
+  # mkdir -p /mnt/boot
+  # mount /dev/disk/by-label/boot /mnt/boot
+
+  # swapon /dev/sda2
+#+end_src
+
+#+begin_src
+  $ sudo su
+  # nix-env -iA nixos.git
+  # git clone https://github.com/Komi7/snowflake.git /mnt/git  
+  # git clone https://github.com/Komi7/nix-dot.git /mnt/git
+  # nixos-install --flake .#<host_name>
+  # reboot
+  /* login */
+  $ sudo rm -r /etc/nixos/configuration.nix
+  /* move config to desired location */
+#+end_src
+
