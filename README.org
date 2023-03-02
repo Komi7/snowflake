@@ -12,7 +12,7 @@
   # git clone https://github.com/Komi7/snowflake.git          #..( ln -s snowflake > ~/flake/ )
   # git clone https://github.com/Komi7/nix-dot.git            #..( ln -s nix-dot > ~/.config/ )
   # cp -r /etc/nixos/hardware-configuration.nix ~/git/snowflake/    #..( must Do )
-  # cd flake/
+  # cd git/snowflake/
   # sudo nixos-rebuild switch --flake .#nix   #( nix is host name.)
   # reboot
   /* login */
