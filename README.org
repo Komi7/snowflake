@@ -36,8 +36,8 @@
 #+begin_src
   $ sudo su
   # nix-env -iA nixos.git
-  # git clone https://github.com/Komi7/snowflake.git /mnt/git  
-  # git clone https://github.com/Komi7/nix-dot.git /mnt/git
+  # git clone https://github.com/Komi7/snowflake.git /mnt/flake  
+  # git clone https://github.com/Komi7/nix-dot.git /mnt/git/
   # nixos-install --flake .#<host_name>
   # reboot
   /* login */
