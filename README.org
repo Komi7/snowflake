@@ -10,7 +10,7 @@
   # mkdir flake && mkdir git
   # git clone https://github.com/Komi7/snowflake.git ~/git/   #..( ln -s snowflake > ~/flake/ )
   # git clone https://github.com/Komi7/nix-dot.git ~/git/     #..( ln -s nix-dot > ~/.config/ )
-  # cp -r /etc/nixos/hardware-configuration.nix ~/flake/   
+  # cp -r /etc/nixos/hardware-configuration.nix ~/flake/      #..( must Do )
   # cd /flake
   # sudo nixos-rebuild switch --flake .#nix   #( nix is host name.)
   # reboot
