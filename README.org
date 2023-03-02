@@ -2,7 +2,7 @@
 #+description: A basic introductional guide on building a NixOS config on your personal machine
 #+author: shousuke
 
-#+title: with Basic GUI install.
+#+title#2: with Basic GUI install.
 
 #+begin_src
   $ sudo su
