@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./fonts.nix
+      ./bspwm.nix
     ];
 
   # Bootloader.
@@ -48,7 +49,7 @@
   services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
+  # services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
 
   # Configure keymap in X11
@@ -87,7 +88,7 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       firefox
-      kate
+    #  kate
     #  thunderbird
     ];
   };
