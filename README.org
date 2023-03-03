@@ -1,5 +1,5 @@
 #+title: NixOS Fresh Install Guide 
-#+description: A basic introductional guide on building a NixOS config on your personal machine
+# +description: A basic introductional guide on building a NixOS config on your personal machine
 #+author: shousuke
 
  with Basic GUI install.
@@ -9,7 +9,7 @@
   # nix-env -iA nixos.git
   # mkdir flake && mkdir git
   # cd git
-  # git clone https://github.com/Komi7/snowflake.git          
+  # git clone https://github.com/Komi7/snowflake.git ~/flake/                
   # git clone https://github.com/Komi7/nix-dot.git                  #..( ln -s nix-dot > ~/.config/ )
   # cp -r /etc/nixos/hardware-configuration.nix ~/git/snowflake/    #..( must Do )
   # cd git/snowflake/
