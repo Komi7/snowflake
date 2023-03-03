@@ -7,13 +7,11 @@
 #+begin_src
   $ sudo su
   # nix-env -iA nixos.git
-  # mkdir flake && mkdir git
-  # cd git
   # git clone https://github.com/Komi7/snowflake.git ~/flake/                
-  # git clone https://github.com/Komi7/nix-dot.git                  #..( ln -s nix-dot > ~/.config/ )
-  # cp -r /etc/nixos/hardware-configuration.nix ~/git/snowflake/    #..( must Do )
-  # cd git/snowflake/
-  # sudo nixos-rebuild switch --flake .#nix                         #( nix is host name.)
+  # git clone https://github.com/Komi7/nix-dot.git ~/git/nix-dot/        #..( ln -s nix-dot > ~/.config/ )
+  # cp -r /etc/nixos/hardware-configuration.nix ~/flake/                 #..( must Do )
+  # cd flake/
+  # sudo nixos-rebuild switch --flake .#nix                              #..( nix is host name.)
   # reboot
   /* login */
   $ sudo rm -r /etc/nixos/configuration.nix
