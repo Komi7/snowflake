@@ -7,7 +7,9 @@
 #+begin_src
   $ sudo su
   # nix-env -iA nixos.git
-  # git clone https://github.com/Komi7/snowflake.git ~/flake/                
+  # mkdir flake && mkdir git
+  # git clone https://github.com/Komi7/snowflake.git ~/git/snowflake/
+  # cp ~/git/snowflake ~/flake
   # git clone https://github.com/Komi7/nix-dot.git ~/git/nix-dot/        #..( ln -s nix-dot > ~/.config/ )
   # cp -r /etc/nixos/hardware-configuration.nix ~/flake/                 #..( must Do )
   # cd flake/
