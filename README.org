@@ -1,5 +1,5 @@
 #+title: NixOS Fresh Install Guide 
-# +description: A basic introductional guide on building a NixOS config on your personal machine
+#+ description: A basic introductional guide on building a NixOS config on your personal machine
 #+author: shousuke
 
  with Basic GUI install.
