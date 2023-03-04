@@ -1,6 +1,8 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    picom.url = "github:yaocccc/picom";
+    flake-utils.url = "github:numtide/flake-utils";
     #nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     home-manager = {
       url = github:nix-community/home-manager;

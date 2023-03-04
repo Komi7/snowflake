@@ -11,14 +11,7 @@
   # when a new Home Manager release introduces backwards
   # incompatible changes.
     home.packages = with pkgs; [
-         btop
-         neovim
-         geany
-	 mpv
-	 rofi
-	 wofi
-	 git
-	 hackgen-nf-font
+	      git
   ];
   # You can update Home Manager without changing this value. Se
   # the Home Manager release notes for a list of state version
@@ -30,5 +23,6 @@
 
   #FONTS
   fonts.fontconfig.enable = true;
-
+ 
+ services.picom.enable = true;
 }

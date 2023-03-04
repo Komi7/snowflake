@@ -9,7 +9,7 @@
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
-     (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "Hack" ]; })
+     (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "Hack" "JetBrainsMono" ]; })
       twemoji-color-font
     ];
     fontconfig = {

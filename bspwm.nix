@@ -85,12 +85,12 @@
 
       resolutions = [
         { x = 1920; y = 1080; }
-        { x = 1600; y = 900; }
-        { x = 3840; y = 2160; }
+     #   { x = 1600; y = 900; }
+     #   { x = 3840; y = 2160; }
       ];
     };
   };
-
+  services.picom.enable = true;
   programs.zsh.enable = true;    # Weirdly needs to be added to have default user on lightdm
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.syntaxHighlighting.enable = true;
@@ -103,23 +103,42 @@
     xorg.xev
     xorg.xkill
     xorg.xrandr
-    xterm
-    alacritty
-    sxhkd
     tldr
-    polybar
     bat
     mpv
-    lsd
-    exa
-    zsh-syntax-highlighting
-    starship
-#bspwm pkgs
+    lxappearance
+    pcmanfm
+    udisks2
+    gvfs
+#bspwm Packages
+    sxhkd
+#polybar package
     yad
-#zip_file
+    polybar
+#ARCHIVE
     zip
     unzip
+    xarchiver
+#TERMINAL
+    alacritty
+    xterm
+    wezterm
+#ZSH
     fnm
+    zsh-syntax-highlighting
+    lsd
+    exa
+    starship
+#CODE
+    neovim
+    geany
+    vscodium
+    jetbrains.pycharm-community
+#LAUNCHER
+    rofi
+#   wofi
+#SHOUSUKE FVT
+    obsidian
   ];
 
   xdg.portal = {                                  # Required for flatpak with window managers
