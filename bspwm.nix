@@ -110,6 +110,23 @@
     pcmanfm
     udisks2
     gvfs
+    xtitle
+    android-tools
+    btop
+    cmatrix
+    copyq
+    dunst
+    feh
+    gdu
+    gimp
+    gnome.gnome-disk-utility
+    neofetch
+    ntfs3g
+    qbittorrent
+    ranger
+    ripgrep
+    tldr
+    tdesktop
 #bspwm Packages
     sxhkd
 #polybar package
