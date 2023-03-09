@@ -8,8 +8,6 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./fonts.nix
-      ./bspwm.nix
     ];
 
   # Bootloader.
@@ -47,9 +45,12 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-
+#  services.xserver.videoDrivers = [ "nvidiaLegacy470" ];
+  services.xserver.videoDrivers = [ "nvidia"];
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
+  hardware.opengl.enable = true;
   # Enable the KDE Plasma Desktop Environment.
-  # services.xserver.displayManager.sddm.enable = true;
+  services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
 
   # Configure keymap in X11
@@ -57,6 +58,21 @@
     layout = "us";
     xkbVariant = "";
   };
+  
+#  {
+  # NVIDIA drivers are unfree.
+#   nixpkgs.config.allowUnfree = true;
+
+#  services.xserver.videoDrivers = [ "nvidiaLegacy470" ];
+#  hardware.opengl.enable = true;
+
+  # Optionally, you may need to select the appropriate driver version for your specific GPU.
+ # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
+
+  # nvidia-drm.modeset=1 is required for some wayland compositors, e.g. sway
+ #  hardware.nvidia.modesetting.enable = true;
+#  ...
+#  }; 
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -84,10 +100,12 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.nix = {
     isNormalUser = true;
-    description = "nix";
+    description = "shousuke";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       firefox
+      neovim
+      geany
     ];
   };
 
@@ -97,8 +115,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    wget
-    curl
+  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+  #  wget
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -112,7 +130,7 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-   services.openssh.enable = true;
+  # services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -127,17 +145,5 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.11"; # Did you read the comment?
-nix = {
-  package = pkgs.nixFlakes;
-  extraOptions = ''
-    experimental-features = nix-command flakes
-  '';
-};
-  # Fonts conf
-  # fonts.fonts = with pkgs; [
- # (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "Hack" ]; })
-# ];
 
-#auto upgrade nixos
-system.autoUpgrade.enable = true;
 }
