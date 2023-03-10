@@ -140,6 +140,8 @@
     variety
     numlockx
     nitrogen
+    chromium
+    flameshot
     python3Full
 #TERMINAL
     alacritty
