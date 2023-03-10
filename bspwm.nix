@@ -136,6 +136,11 @@
     zip
     unzip
     xarchiver
+    killall
+    variety
+    numlockx
+    nitrogen
+    python3Full
 #TERMINAL
     alacritty
     xterm
