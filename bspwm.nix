@@ -140,9 +140,9 @@
     variety
     numlockx
     nitrogen
-    chromium
     flameshot
     python3Full
+# VPN
 #TERMINAL
     alacritty
     xterm
