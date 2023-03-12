@@ -101,6 +101,7 @@
   environment.systemPackages = with pkgs; [       # Packages installed
     xclip
     xorg.xev
+    nerdfonts
     xorg.xkill
     xorg.xrandr
     tldr
@@ -157,7 +158,7 @@
     neovim
     geany
     vscodium
-    jetbrains.pycharm-community
+  #  jetbrains.pycharm-community
 #LAUNCHER
     rofi
 #   wofi

@@ -7,6 +7,8 @@
   fonts = {
     fonts = with pkgs; [
       noto-fonts
+      powerline-fonts
+      material-design-icons
       noto-fonts-cjk
       noto-fonts-emoji
      (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "Hack" "JetBrainsMono" ]; })
