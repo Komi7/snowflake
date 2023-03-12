@@ -20,6 +20,6 @@
   /* move config to desired location */
 #+end_src
 
-nix-dot file [config file](https://github.com/komi7/nix-dot.git) 
+nix-dot file (config file)[https://github.com/komi7/nix-dot.git] 
 
 sample img : [[file:https://raw.githubusercontent.com/Komi7/resources/main/screenshot/nixos_view.png]]
