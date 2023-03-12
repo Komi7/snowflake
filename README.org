@@ -20,3 +20,4 @@
   /* move config to desired location */
 #+end_src
 
+sample img : [[file:https://raw.githubusercontent.com/Komi7/resources/main/screenshot/nixos_view.png]]
