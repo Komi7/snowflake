@@ -128,6 +128,9 @@
     ripgrep
     tldr
     tdesktop
+    chromium
+    fish
+    cloudflare-warp
 #bspwm Packages
     sxhkd
 #polybar package
@@ -170,4 +173,5 @@
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
+
 }
