@@ -13,7 +13,7 @@
   # git clone https://github.com/Komi7/nix-dot.git ~/git/nix-dot/        #..( ln -s nix-dot > ~/.config/ )
   # cp -r /etc/nixos/hardware-configuration.nix ~/flake/                 #..( must Do )
   # cd flake/
-  # sudo nixos-rebuild switch --flake .#nix                              #..( nix is host name.)
+  # sudo nixos-rebuild switch --flake .#shousuke                              #..( shousuke is host name.)
   # reboot
   /* login */
   $ sudo rm -r /etc/nixos/configuration.nix
