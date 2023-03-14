@@ -85,7 +85,7 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.nix = {
+  users.users.shousuke = {
     isNormalUser = true;
     description = "shousuke";
     extraGroups = [ "networkmanager" "wheel" ];

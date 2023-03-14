@@ -105,11 +105,14 @@
     xorg.xkill
     xorg.xrandr
     tldr
+    xfce.tumbler
+    ffmpegthumbnailer
     bat
     mpv
     lxappearance
     pcmanfm
     udisks2
+    libsForQt5.qtstyleplugin-kvantum
     gvfs
     xtitle
     android-tools
