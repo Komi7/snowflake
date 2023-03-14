@@ -27,4 +27,4 @@ sample img : [[file:https://raw.githubusercontent.com/Komi7/resources/main/scree
 
 
 
-![NixOS](https://img.shields.io/badge/NIXOS-5277C3.svg?style=for-the-badge&logo=NixOS&logoColor=white)
+[[NixOS:https://img.shields.io/badge/NIXOS-5277C3.svg?style=for-the-badge&logo=NixOS&logoColor=white]]
