@@ -27,7 +27,8 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-
+  # Virtualisation
+  virtualisation.libvirtd.enable = true;
   # Set your time zone.
   time.timeZone = "Asia/Dhaka";
 
@@ -88,7 +89,7 @@
   users.users.shousuke = {
     isNormalUser = true;
     description = "shousuke";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
     packages = with pkgs; [
       firefox
       neovim

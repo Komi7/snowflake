@@ -170,6 +170,17 @@
 #   wofi
 #SHOUSUKE FVT
     obsidian
+
+#VIRTUAL BOX
+    qemu
+    virt-manager
+    libvirt 
+    virt-viewer 
+    dnsmasq 
+    vde2 
+    ebtables 
+    libguestfs
+    bridge-utils
   ];
 
   xdg.portal = {                                  # Required for flatpak with window managers
