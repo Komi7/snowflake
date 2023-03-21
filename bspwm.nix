@@ -170,7 +170,8 @@
 #   wofi
 #SHOUSUKE FVT
     obsidian
-
+    bettercap
+    onlyoffice-bin
 #VIRTUAL BOX
     qemu
     virt-manager
@@ -182,6 +183,7 @@
     libguestfs
     bridge-utils
   ];
+
 
   xdg.portal = {                                  # Required for flatpak with window managers
     enable = true;
