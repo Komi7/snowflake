@@ -171,7 +171,7 @@
 #SHOUSUKE FVT
     obsidian
     bettercap
-    onlyoffice-bin
+    libsForQt5.kwalletmanager
 #VIRTUAL BOX
     qemu
     virt-manager
