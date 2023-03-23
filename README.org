@@ -16,7 +16,7 @@
   #+end_src
   
 :- note: if you want to use my nix config than you have to change user name as your choice (or you can use mine for test only).
-take a look [[https://github.com/komi7/nix-dot.git][link]] where  you have to  change user name.
+take a look [[https://github.com/Komi7/resources/blob/main/username.md][link]] where  you have to  change user name.
 
  #+begin_src
   # sudo nixos-rebuild switch --flake .#shousuke                         #..( shousuke is host/user name.)
