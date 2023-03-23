@@ -12,6 +12,7 @@
   # git clone https://github.com/Komi7/snowflake.git
   # cp -r ~/git/snowflake/* ~/flake/
   # git clone https://github.com/Komi7/nix-dot.git                       #..( ln -s nix-dot > ~/.config/ )
+       /* move config to desired location */
   # cp -r /etc/nixos/hardware-configuration.nix ~/flake/                 #..( must Do )
   # cd flake/
   #+end_src
@@ -24,7 +25,7 @@ take a look [[https://github.com/Komi7/resources/blob/main/username.md][link]] w
   # reboot
   /* login */
   $ sudo rm -r /etc/nixos/configuration.nix
-  /* move config to desired location */
+
 #+end_src
 
 [[https://github.com/komi7/nix-dot.git][nix-dot]]
