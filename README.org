@@ -15,8 +15,7 @@
   # cd flake/
   #+end_src
   
- 
-  :- note: if you want to use my nix config than you have to change user name as your choice (or you can use mine for test only).
+:- note: if you want to use my nix config than you have to change user name as your choice (or you can use mine for test only).
 take a look [[https://github.com/komi7/nix-dot.git][link]] where  you have to  change user name.
 
  #+begin_src
