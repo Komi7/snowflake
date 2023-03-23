@@ -13,7 +13,9 @@
   # git clone https://github.com/Komi7/nix-dot.git ~/git/nix-dot/        #..( ln -s nix-dot > ~/.config/ )
   # cp -r /etc/nixos/hardware-configuration.nix ~/flake/                 #..( must Do )
   # cd flake/
-  # sudo nixos-rebuild switch --flake .#shousuke                         #..( shousuke is host name.)
+  :- note: if you want to use my nix config than you have to change user name as your choice (or you can use mine for test only).
+take a look ([[https://github.com/komi7/nix-dot.git][nix-dot]]) where  you have to  change user name.
+  # sudo nixos-rebuild switch --flake .#shousuke                         #..( shousuke is host/user name.)
   # reboot
   /* login */
   $ sudo rm -r /etc/nixos/configuration.nix
