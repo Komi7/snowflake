@@ -171,7 +171,6 @@
 #SHOUSUKE FVT
     obsidian
     bettercap
-    libsForQt5.kwalletmanager
 #VIRTUAL BOX
     qemu
     virt-manager
@@ -182,6 +181,12 @@
     ebtables 
     libguestfs
     bridge-utils
+#Ranger File
+    file
+    unrar
+    w3m
+    jq
+    fmt
   ];
 
 
