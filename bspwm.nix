@@ -96,6 +96,7 @@
   programs.zsh.syntaxHighlighting.enable = true;
   programs.zsh.autosuggestions.enable = true;
   programs.starship.enable = true;
+#  programs.steam.enable = true;
   # enable ff2mpv native meesaging hosts
   programs.firefox.nativeMessagingHosts.ff2mpv = true;
   environment.systemPackages = with pkgs; [       # Packages installed
@@ -134,6 +135,8 @@
     chromium
     fish
     cloudflare-warp
+#   steam
+#   steam-run
 #bspwm Packages
     sxhkd
 #polybar package
