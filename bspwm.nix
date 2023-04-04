@@ -147,8 +147,10 @@
     variety
     numlockx
     nitrogen
-    flameshot
     python3Full
+# screenshot & video rec
+    obs-studio
+    flameshot
 # VPN
 #TERMINAL
     alacritty
