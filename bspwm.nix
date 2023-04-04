@@ -154,6 +154,9 @@
 # screenshot & video rec
     obs-studio
     flameshot
+    libsForQt5.kdenlive
+    glaxnimate
+    mediainfo
 # VPN
 #TERMINAL
     alacritty
