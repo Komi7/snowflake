@@ -145,6 +145,8 @@
 #ARCHIVE
     zip
     unzip
+    gzip
+    p7zip
     xarchiver
     killall
     variety
