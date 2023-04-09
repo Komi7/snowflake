@@ -47,7 +47,7 @@
           };
         };
         defaultSession = "none+bspwm";            # none+bspwm -> no real display manager
-      };
+     };
       windowManager= {
         bspwm = {                                 # Window Manager
           enable = true;
@@ -131,7 +131,6 @@
     ranger
     ripgrep
     tldr
-    tdesktop
     chromium
     fish
     cloudflare-warp
@@ -170,6 +169,8 @@
     lsd
     exa
     starship
+#PDF view-reader
+    sioyek
 #CODE
     neovim
     geany
@@ -181,6 +182,8 @@
 #SHOUSUKE FVT
     obsidian
     bettercap
+    betterlockscreen
+    slides
 #VIRTUAL BOX
     qemu
     virt-manager
@@ -191,6 +194,10 @@
     ebtables 
     libguestfs
     bridge-utils
+#chat-desktop-application
+    betterdiscordctl
+    discord-canary
+    tdesktop
 #Ranger File
     file
     unrar
@@ -199,7 +206,7 @@
     fmt
   ];
 
-
+#remove for gnome-full desktop environment install 
   xdg.portal = {                                  # Required for flatpak with window managers
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
