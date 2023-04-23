@@ -15,7 +15,10 @@
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
-      };
+       config.permittedInsecurePackages = [
+                "electron-21.4.0"
+              ];
+             };
 
       lib = nixpkgs.lib;
     in {
@@ -35,5 +38,6 @@
         };
       };
     };
+
 }
 

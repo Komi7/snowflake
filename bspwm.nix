@@ -184,6 +184,7 @@
     bettercap
     betterlockscreen
     slides
+    scrcpy
 #VIRTUAL BOX
     qemu
     virt-manager

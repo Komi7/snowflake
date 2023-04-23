@@ -148,4 +148,6 @@ nix = {
 
 #auto upgrade nixos
 system.autoUpgrade.enable = true;
+
 }
+
