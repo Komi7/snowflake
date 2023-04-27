@@ -128,7 +128,9 @@
     neofetch
     ntfs3g
     qbittorrent
-    ranger
+    #ranger
+    lf
+    kitty #only for lf image preview
     ripgrep
     tldr
     chromium
