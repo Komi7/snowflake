@@ -49,7 +49,7 @@
         defaultSession = "none+bspwm";            # none+bspwm -> no real display manager
      };
       windowManager= {
-        bspwm = {                                 # Window Manager
+        bspwm = {                                  # Window Manager
           enable = true;
         };
       };
@@ -135,7 +135,7 @@
     tldr
     chromium
     fish
-    cloudflare-warp
+#    cloudflare-warp
 #   steam
 #   steam-run
 #bspwm Packages
@@ -213,6 +213,6 @@
   xdg.portal = {                                  # Required for flatpak with window managers
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-  };
+  };   # if gnome not install unmark to use pkgs.xda
 
 }

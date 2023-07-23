@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       ./fonts.nix
       ./bspwm.nix
+    #  ./picom.nix
     ];
 
   # Bootloader.
