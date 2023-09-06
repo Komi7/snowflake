@@ -25,4 +25,6 @@
   fonts.fontconfig.enable = true;
  
  services.picom.enable = true;
+
+
 }

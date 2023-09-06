@@ -31,7 +31,9 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-
+   
+  # virtul box 
+  virtualisation.libvirtd.enable = true;
   # Set your time zone.
   time.timeZone = "Asia/Dhaka";
 

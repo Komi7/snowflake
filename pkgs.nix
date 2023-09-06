@@ -107,7 +107,7 @@
     bat
     mpv
     mesa
-    lxappearance
+  #  lxappearance
     pcmanfm
 #    udisks2
     gvfs
@@ -231,6 +231,7 @@
     noto-fonts-emoji
     ocs-url
     sway
+    lxappearance-gtk2
   ];
 
 #remove for gnome-full desktop environment install 
