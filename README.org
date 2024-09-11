@@ -21,7 +21,7 @@ take a look [[https://github.com/Komi7/resources/blob/main/username.md][link]] w
 
 [[https://github.com/komi7/nix-dot.git][nix-dot]]
 
-sample img : [[file:https://raw.githubusercontent.com/Komi7/resources/main/screenshot/nixos_view.png]]
+sample img : [[file:https://raw.githubusercontent.com/Komi7/resources/main/Screenshot_12-Sep_05-22-41_2922.png]]
 
 
 
