@@ -1,8 +1,8 @@
-#+title: NixOS Fresh Install Guide 
+#+title: NixOS Fresh Install  !
 #+description: A basic introductional guide on building a NixOS config on your personal machine
 #+author: shousuke
 
- with Basic GUI install.
+ 
 
 #+begin_src
   $ nix-shell -p git curl pciutils
