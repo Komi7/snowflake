@@ -215,7 +215,12 @@
     fastfetch
     (mpv.override {scripts = [mpvScripts.mpris];}) # with tray
     #ranger
-      
+    #Shousuke Personal
+    lf
+    feh
+    mpv
+    qbittorrent
+    obsidian
     # Hyprland Stuff
     ags        
     btop
