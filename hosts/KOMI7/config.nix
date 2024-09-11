@@ -221,6 +221,7 @@
     mpv
     qbittorrent
     obsidian
+    telegram-desktop
     # Hyprland Stuff
     ags        
     btop
