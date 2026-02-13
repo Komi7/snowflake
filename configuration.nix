@@ -162,11 +162,61 @@
   # List services that you want to enable:
   
   #Enabling Flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+ # nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
+  # For Electron apps to use wayland
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
+nix = {
+    settings = {
+      auto-optimise-store = true;
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+ #     substituters = [ "https://hyprland.cachix.org" ];
+  #    trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+    };
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
+  };
+
+
+   # zram
+  zramSwap = {
+	  enable = true;
+	  priority = 100;
+	  memoryPercent = 30;
+	  swapDevices = 1;
+    algorithm = "zstd";
+    };
+
+  powerManagement = {
+  	enable = true;
+	  cpuFreqGovernor = "schedutil";
+  };
+
+
+
+  	  services.gvfs.enable = true;
+	  services.tumbler.enable = true;
+	  services.udev.enable = true;
+	  services.envfs.enable = true;
+	  services.dbus.enable = true;
+	  services.fstrim.enable = true;
+      services.libinput.enable = true;
+      services.rpcbind.enable = false;
+      services.nfs.server.enable = false;
+      services.openssh.enable = true;
+      services.fwupd.enable = true;
+      services.upower.enable = true;
+      services.gnome.gnome-keyring.enable = true;
+      services.blueman.enable = true;
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];

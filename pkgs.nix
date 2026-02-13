@@ -5,6 +5,10 @@
     brave     #browser
     rustdesk-flutter  #desktop share
     xdg-desktop-portal
-    mpv
+    mpv  #Video Player
+    dnsutils #DNS Utilis
+    cmake
+    clang
+    fastfetch
   ];
   }
