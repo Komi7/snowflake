@@ -1,41 +1,11 @@
 {
-  description = "KooL's NixOS-Hyprland"; 
-  	
+  description = "A very basic flake";
   inputs = {
-  	nixpkgs.url = "nixpkgs/nixos-unstable";
-	#wallust.url = "git+https://codeberg.org/explosion-mental/wallust?ref=dev";
-	hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1"; # hyprland development
-	distro-grub-themes.url = "github:AdisonCavani/distro-grub-themes"; 
-  	};
-
-  outputs = 
-	inputs@{ self,nixpkgs, ... }:
-    	let
-      system = "x86_64-linux";
-      host = "KOMI7";
-      username = "shousuke";
-
-    pkgs = import nixpkgs {
-       	inherit system;
-       	config = {
-       	allowUnfree = true;
-       	};
-      };
-    in
-      {
-	nixosConfigurations = {
-      "${host}" = nixpkgs.lib.nixosSystem rec {
-		specialArgs = { 
-			inherit system;
-			inherit inputs;
-			inherit username;
-			inherit host;
-			};
-	   		modules = [ 
-				./hosts/${host}/config.nix 
-				inputs.distro-grub-themes.nixosModules.${system}.default
-				];
-			};
-		};
-	};
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+  };
+  outputs = { self, nixpkgs }: {
+      nixosConfigurations.KOMI = nixpkgs.lib.nixosSystem {
+           modules = [ ./configuration.nix];
+   };
+  };
 }
