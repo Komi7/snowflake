@@ -8,14 +8,16 @@
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
+	 monitor = [ "HDMI-A-1, preferred, auto, 1" ];
       "$mod" = "SUPER";
       "$mod1" = "ALT";
       
-      
+
       exec-once = [
-        "hyprpaper"
-   #     "swww-daemon"
+   #     "hyprpaper"
+   #    "swww-daemon"
         "dunst"
+        "${pkgs.swaybg}/bin/swaybg -i ~/Pictures/wallhaven-zy365v.jpg -m fill"
       ];
 
      bind = [
@@ -57,7 +59,9 @@
         ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
         
         # --- Screenshots (Requires grim and slurp) ---
-        "$mod1, F12, exec, grim -g \"$(slurp)\" - | wl-copy"
+    #    "$mod1, F12, exec, grim -g \"$(slurp)\" - | wl-copy"
+    # Updated Screenshot Binding
+        "$mod1, F12, exec, grim -g \"$(slurp)\" - | tee ~/Pictures/Screenshots/$(date +'%Y-%m-%d_%H-%M-%S').png | wl-copy"
       ] ++ (
         # --- Workspace Bindings (1-10) ---
         # $mod + [1-0] to switch workspace
@@ -215,16 +219,16 @@ programs.waybar = {
     '';
   };
   
-  services.hyprpaper = {
-    enable = true;
-    settings = {
-      ipc = "on";
-      splash = false;
-      # Replace the path below with your actual wallpaper image path
-      preload = [ "/home/shousuke/Pictures/wallhaven-zy365v.jpg" ];
-      wallpaper = [ "/home/shousuke/Pictures/wallhaven-zy365v.jpg" ];
-    };
-  };
+#  services.hyprpaper = {
+#    enable = true;
+#    settings = {
+#      ipc = "on";
+#      splash = false;
+#      # Replace the path below with your actual wallpaper image path
+#      preload = [ "/home/shousuke/Pictures/wallhaven-zy365v.jpg" ];
+#      wallpaper = [ "HDMI-A-1,/home/shousuke/Pictures/wallhaven-zy365v.jpg" ];
+#    };
+#  };
 
   # Packages for Shousuke
   home.packages = with pkgs; [
@@ -239,9 +243,11 @@ programs.waybar = {
     swww
     dunst
     feh
+    swaybg
     grim
     slurp
     wl-clipboard
+    brightnessctl
  # Audio
     pavucontrol
     wireplumber
