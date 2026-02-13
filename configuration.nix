@@ -14,12 +14,38 @@
     ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+#  boot.loader.systemd-boot.enable = true;
+#  boot.loader.efi.canTouchEfiVariables = true;
 
-  # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
+  
+   boot = {
+	  #loader
+	  loader.systemd-boot.enable = true;
+      loader.efi.canTouchEfiVariables = true;
+      loader.timeout = 1;
+      #Kernel
+	  kernelPackages = pkgs.linuxPackages_latest;  # Use latest kernel.
+      kernelParams = [
+      "systemd.mask=systemd-vconsole-setup.service"
+      "systemd.mask=dev-tpmrm0.device" #this is to mask that stupid 1.5 mins systemd bug
+      "nowatchdog" 
+      "modprobe.blacklist=sp5100_tco" #watchdog for AMD
+      "modprobe.blacklist=iTCO_wdt" #watchdog for Intel
+ 	  ];
+    # This is for OBS Virtual Cam Support
+    kernelModules = [ "v4l2loopback" ];
+    extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
+    
+    initrd = { 
+      availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod" ];
+      kernelModules = [ ];
+    };
+    # Make /tmp a tmpfs
+    tmp = {
+      useTmpfs = false;
+      tmpfsSize = "30%";
+      };    
+};
   networking.hostName = "KOMI"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -63,7 +89,7 @@
   };
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  # services.printing.enable = true; 
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -88,14 +114,12 @@
   users.users.shousuke = {
     isNormalUser = true;
     description = "Shousuke Komi";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "audio" "virt-manager" ];
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird
     ];
   };
-  # Rustdesk dps
- # services.pipewire.pulse.enable = true;
 
   # Install firefox.
   programs.firefox.enable = true;
@@ -112,6 +136,8 @@
    git
    kitty
    ghostty
+   nano
+   lf
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -134,7 +160,7 @@
   	  nvidia-vaapi-driver
   	  vdpauinfo
 	  libva
-          libva-utils		
+      libva-utils		
     	];
   };
 
@@ -162,14 +188,15 @@
   # List services that you want to enable:
   
   #Enabling Flakes
- # nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  #nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
+  
   # For Electron apps to use wayland
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-nix = {
+  nix = {
     settings = {
       auto-optimise-store = true;
       experimental-features = [
@@ -196,13 +223,13 @@ nix = {
     algorithm = "zstd";
     };
 
-  powerManagement = {
+   powerManagement = {
   	enable = true;
 	  cpuFreqGovernor = "schedutil";
   };
 
 
-
+  # Others services
   	  services.gvfs.enable = true;
 	  services.tumbler.enable = true;
 	  services.udev.enable = true;
@@ -217,6 +244,7 @@ nix = {
       services.upower.enable = true;
       services.gnome.gnome-keyring.enable = true;
       services.blueman.enable = true;
+      
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];

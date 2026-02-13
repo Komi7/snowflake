@@ -9,6 +9,7 @@
     dnsutils #DNS Utilis
     cmake
     clang
-    fastfetch
+    fastfetch #rice
+    geany  #Txt Edittor
   ];
   }
