@@ -1,7 +1,7 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{config, pkgs, host, username, options, lib, inputs, system, ...}:
+{config, pkgs, host, username, options, lib, inputs, system, hyprland, ...}:
 #{ config, pkgs, ... }:
 
 {
@@ -11,6 +11,7 @@
       ./Steam.nix
       ./pkgs.nix
       ./virt-manager.nix
+      ./hyprland.nix
     ];
 
   # Bootloader.
@@ -203,8 +204,9 @@
         "nix-command"
         "flakes"
       ];
- #     substituters = [ "https://hyprland.cachix.org" ];
-  #    trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+      #Enable Cachix to avoid rebuilding dependencies
+      substituters = [ "https://hyprland.cachix.org" ];
+      trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
     };
     gc = {
       automatic = true;
