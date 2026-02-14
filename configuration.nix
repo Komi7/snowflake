@@ -78,10 +78,22 @@
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
+  security.polkit.enable = true;  # Enable the Polkit Service
+  services.udisks2.enable = true;  #If you are trying to mount drives via a file manager
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
+ #services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
   services.desktopManager.plasma6.enable = true;
+  #autoLogin
+  services.displayManager = {
+    sddm.enable = true;
+ #   autoLogin = {
+ #     enable = true;
+ #     user = "shousuke";
+ #   };
+ #   defaultSession = "hyprland";
+  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -114,8 +126,10 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.shousuke = {
     isNormalUser = true;
+   # Set the default shell here
+    shell = pkgs.zsh;
     description = "Shousuke Komi";
-    extraGroups = [ "networkmanager" "wheel" "audio" "virt-manager" ];
+    extraGroups = [ "networkmanager" "wheel" "virt-manager" "video" "audio" "storage" "libvirtd" ];
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird
@@ -124,6 +138,9 @@
 
   # Install firefox.
   programs.firefox.enable = true;
+  
+  # Enable zsh system-wide
+  programs.zsh.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -138,6 +155,7 @@
    kitty
    ghostty
    nano
+   polkit_gnome
    lf
   ];
 
@@ -211,7 +229,7 @@
     gc = {
       automatic = true;
       dates = "weekly";
-      options = "--delete-older-than 7d";
+      options = "--delete-older-than 1d";
     };
   };
 

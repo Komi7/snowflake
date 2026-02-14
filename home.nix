@@ -8,7 +8,16 @@
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
-	 monitor = [ "HDMI-A-1, preferred, auto, 1" ];
+	 monitor = [ "HDMI-A-1, 1920x1080@100, auto, 1" ];
+	 # Environment Variables for NVIDIA/Wayland
+      env = [
+        "LIBVA_DRIVER_NAME,nvidia"
+        "XDG_SESSION_TYPE,wayland"
+        "GBM_BACKEND,nvidia-drm"
+        "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+        "NIXOS_OZONE_WL,1"
+      ];
+
       "$mod" = "SUPER";
       "$mod1" = "ALT";
       
@@ -17,15 +26,16 @@
    #     "hyprpaper"
    #    "swww-daemon"
         "dunst"
+   #     "rustdesk"
         "${pkgs.swaybg}/bin/swaybg -i ~/Pictures/wallhaven-zy365v.jpg -m fill"
+        "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
       ];
 
      bind = [
         # --- Essentials ---
         "$mod, X, exec, kitty"
-        "$mod, F, exec, firefox"
+        "$mod, F, exec, brave"
         "$mod1, E, exec, dolphin"
-        "$mod, R, exec, rofi -show drun"
         "$mod, Q, killactive,"
         "$mod, M, exit,"
         "$mod, V, togglefloating,"
@@ -182,10 +192,10 @@ programs.waybar = {
         border-radius: 0;
       }
 
-      window#waybar {
-        background-color: rgba(26, 27, 38, 0.8);
-        border-bottom: 2px solid rgba(100, 114, 125, 0.3);
-        color: #ffffff;
+        window#waybar {
+        background: rgba(30, 30, 46, 0.5); /* Transparent blur effect */
+        color: #cdd6f4;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       }
 
       #workspaces button {
@@ -194,8 +204,9 @@ programs.waybar = {
       }
 
       #workspaces button.active {
-        color: #bb9af7;
-        border-bottom: 2px solid #bb9af7;
+        background-color: #89b4fa;
+        color: #11111b;
+        border-radius: 5px;
       }
 
       #clock, #pulseaudio, #network, #cpu, #memory, #tray {
@@ -219,16 +230,37 @@ programs.waybar = {
     '';
   };
   
-#  services.hyprpaper = {
-#    enable = true;
-#    settings = {
-#      ipc = "on";
-#      splash = false;
-#      # Replace the path below with your actual wallpaper image path
-#      preload = [ "/home/shousuke/Pictures/wallhaven-zy365v.jpg" ];
-#      wallpaper = [ "HDMI-A-1,/home/shousuke/Pictures/wallhaven-zy365v.jpg" ];
-#    };
-#  };
+  #ZSH CONFIG
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+
+    # Helpful aliases for a NixOS user
+    shellAliases = {
+      ll = "ls -l";
+      update = "sudo nixos-rebuild switch --flake .#KOMI";
+      clean = "sudo nix-collect-garbage -d";
+      v = "nvim";
+      ff = "fastfetch";
+    };
+
+    # Oh-My-Zsh for easy theming and plugins
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "git" "sudo" "docker" ];
+      theme = "robbyrussell"; # Simple and clean
+    };
+
+    # Initialize extra commands
+    initExtra = ''
+      # Fastfetch on startup
+      if [[ -z "$VTE_VERSION" ]]; then
+        fastfetch
+      fi
+    '';
+  };
 
   # Packages for Shousuke
   home.packages = with pkgs; [
@@ -248,6 +280,9 @@ programs.waybar = {
     slurp
     wl-clipboard
     brightnessctl
+    swaynotificationcenter # Better than Dunst for modern Wayland
+    nwg-look               # GTK theme switcher
+    qt6Packages.qt6ct                  # Qt theme switcher
  # Audio
     pavucontrol
     wireplumber
