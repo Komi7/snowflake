@@ -26,7 +26,7 @@
     };
 
     # Custom logic (like running fastfetch on startup)
-    initExtra = ''
+    initContent = ''
       # Fastfetch on startup if in a standard terminal
       if [[ -z "$VTE_VERSION" && "$TERM" != "dumb" ]]; then
         fastfetch
