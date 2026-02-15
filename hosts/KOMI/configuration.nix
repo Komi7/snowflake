@@ -6,6 +6,7 @@
     ../../modules/system/hyprland.nix
     ../../modules/system/steam.nix
     ../../modules/system/virt.nix
+    ../../modules/system/fontconfig.nix
   ];
 
   networking.hostName = "KOMI";
@@ -19,6 +20,10 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  
+  # Enable the KDE Plasma Desktop Environment.
+  services.displayManager.sddm.enable = true;
+  services.desktopManager.plasma6.enable = true;
   #service
   services.xserver.enable = true;
   security.polkit.enable = true;  # Enable the Polkit Service
