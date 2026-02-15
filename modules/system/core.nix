@@ -24,6 +24,8 @@
     geany
     polkit_gnome
     wlogout
+    networkmanagerapplet # Provides nm-connection-editor
+    gsimplecal #calendar
   ];
 
   system.stateVersion = "25.11";

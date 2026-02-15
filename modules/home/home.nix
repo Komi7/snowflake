@@ -21,7 +21,7 @@
     hyprsunset
     hyprpicker
     rofi
- #   waybar
+    copyq
     swww
     dunst
     feh

@@ -57,6 +57,12 @@ nix = {
   	enable = true;
 	  cpuFreqGovernor = "schedutil";
   };
+  
+   xdg.portal = {
+   enable = true;
+   extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+   config.common.default = "*";
+   };
 
 
   # Others services

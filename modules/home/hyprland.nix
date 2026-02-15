@@ -22,7 +22,7 @@
    #     "hyprpaper"
    #    "swww-daemon"
         "dunst"
-   #     "rustdesk"
+        "copyq --start-server"
         "${pkgs.swaybg}/bin/swaybg -i ~/Pictures/wallhaven-zy365v.jpg -m fill"
         "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
       ];
@@ -34,7 +34,8 @@
         "$mod1, E, exec, thunar"
         "$mod, Q, killactive,"
         "$mod, M, exit,"
-        "$mod, V, togglefloating,"
+        "$mod, T, togglefloating,"
+        "$mod, V, exec, copyq show"
         "$mod, P, pseudo," # dwindle
         "$mod, J, togglesplit," # dwindle
         "$mod, Space, exec, rofi -show drun"

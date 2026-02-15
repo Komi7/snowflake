@@ -1,81 +1,118 @@
 { pkgs, ... }:
 {
-	programs.waybar = {
+  programs.waybar = {
     enable = true;
-    systemd.enable = true; # Helps with auto-starting and reliability
+    systemd.enable = true;
     settings = {
       mainBar = {
-        layer = "top";
+        layer = "top"; 
         position = "top";
         height = 34;
-        spacing = 4;
+        margin-top = 8;
+        margin-left = 10;
+        margin-right = 10;
+        spacing = 8;
+
         modules-left = [ "hyprland/workspaces" "hyprland/window" ];
         modules-center = [ "clock" ];
-        modules-right = [ "pulseaudio" "network" "cpu" "memory" "tray" "custom/power" ];
+        modules-right = [ "group/hardware" "pulseaudio" "network" "tray" "custom/power" ];
 
         "hyprland/workspaces" = {
-          format = "{name}";
+          format = "{icon}";
           on-click = "activate";
+          format-icons = {
+          "1" = ""; # Terminal
+          "2" = ""; # Browser
+          "3" = ""; # Code
+          "default" = "";
+          };
         };
-        
+
+        "group/hardware" = {
+          orientation = "horizontal";
+          modules = [ "cpu" "memory" ];
+        };
+
+        "cpu" = {
+          format = " {usage}%";
+          interval = 10;
+        };
+
+        "memory" = {
+          format = " {percentage}%";
+          interval = 10;
+        };
+
         "custom/power" = {
           format = "⏻";
-          on-click = "wlogout"; # Launches the full-screen menu
+          on-click = "wlogout";
           tooltip = false;
-          };
-
-        "clock" = {
-          format = "{:%I:%M %p}";
-          tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
         };
 
+        "clock" = {
+        format = "{:%I:%M %p}";
+        on-click = "gsimplecal"; # Opens a standalone calendar window
+        tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+        calendar = {
+         mode          = "year";
+         mode-mon-col  = 3;
+         weeks-pos     = "right";
+         on-scroll     = 1;
+         format = {
+            months =   "<span color='#ffead3'><b>{}</b></span>";
+            days =     "<span color='#ecc6d9'><b>{}</b></span>";
+            weeks =    "<span color='#99ffdd'><b>W{}</b></span>";
+            weekdays = "<span color='#ffcc66'><b>{}</b></span>";
+            today =    "<span color='#ff6699'><b><u>{}</u></b></span>";
+          };
+        };
+       actions = {
+        on-click-right = "mode";
+        on-scroll-up = "shift_up";
+        on-scroll-down = "shift_down";
+        };
+       };
+       
         "pulseaudio" = {
-    format = "{icon} {volume}% {format_source}";
-    format-bluetooth = " {volume}% {format_source}";
-    format-bluetooth-muted = " 󰝟 {format_source}";
-    format-muted = "󰝟 {format_source}";
-    format-source = " {volume}%";
-    format-source-muted = "";
-    format-icons = {
-        headphone = "";
-        hands-free = "";
-        headset = "";
-        phone = "";
-        portable = "";
-        car = "";
-        default = ["" "" ""];
-    };
-    
-    # --- The Control Logic ---
-    on-click = "pavucontrol";          # Left click: Open full GUI mixer
-    on-click-right = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; # Right click: Mute
-    on-scroll-up = "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"; # Scroll up: Volume +
-    on-scroll-down = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";      # Scroll down: Volume -
-    
-    # This allows you to switch between devices (Sinks) via the tooltip
-    tooltip-format = "{desc} | {bus}";
-};
+          format = "{icon} {volume}%";
+          format-muted = "󰝟 Muted";
+          format-icons = {
+            default = ["" "" ""];
+          };
+          on-click = "pavucontrol";
+          on-click-right = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+          on-scroll-up = "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+";
+          on-scroll-down = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
+        };
 
         "network" = {
-          format-wifi = " {essid}";
-          format-ethernet = "󰈀 Wired";
-          format-disconnected = "⚠ Disconnected";
+         format-wifi = " {essid}";
+         format-ethernet = "󰈀 Wired";
+         format-disconnected = "⚠ Disconnected";
+         # Option A: Launch graphical editor (easiest)
+         on-click = "nm-connection-editor";
         };
       };
     };
 
     style = ''
       * {
-        font-family: "JetBrainsMono Nerd Font", Roboto, Helvetica, Arial, sans-serif;
+        font-family: "JetBrainsMono Nerd Font", "Roboto", "Helvetica", sans-serif;
         font-size: 13px;
         border: none;
         border-radius: 0;
       }
 
-        window#waybar {
-        background: rgba(30, 30, 46, 0.5); /* Transparent blur effect */
+      window#waybar {
+        background: rgba(30, 30, 46, 0.5);
         color: #cdd6f4;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      #workspaces, #clock, #pulseaudio, #network, #cpu, #memory, #tray, #custom-power {
+        background: rgba(45, 45, 70, 0.8);
+        padding: 0 12px;
+        margin: 4px 2px; 
+        border-radius: 10px;
       }
 
       #workspaces button {
@@ -86,27 +123,38 @@
       #workspaces button.active {
         background-color: #89b4fa;
         color: #11111b;
-        border-radius: 5px;
-      }
-
-      #clock, #pulseaudio, #network, #cpu, #memory, #tray {
-        padding: 0 10px;
-        color: #cfc9c2;
+        border-radius: 8px;
       }
       
-      #pulseaudio {
-    background-color: #f1fa8c; /* Dracula Yellow or adjust to your theme */
-    color: #282a36;
-    border-radius: 10px;
-    margin: 4px;
-    padding: 0 15px;
-}
+      #network {
+       background-color: rgba(45, 45, 70, 0.8); /* Matches your hardware/clock modules */
+       color: #cfc9c2;
+       border-radius: 10px;
+       margin: 4px 2px;
+       padding: 0 12px;
+      }
 
-#pulseaudio.muted {
-    background-color: #ff5555; /* Red when muted */
-    color: #ffffff;
-}
+      #custom-power {
+        background-color: #ff5555;
+        color: #ffffff;
+      }
       
+      #clock {  }
+
+    tooltip {
+     background: rgba(30, 30, 46, 0.9);
+     border: 1px solid rgba(255, 255, 255, 0.1);
+     border-radius: 10px;
+     }
+
+    tooltip label {
+     color: #cdd6f4;
+     }
+    
+      #pulseaudio.muted {
+        background-color: #fab387;
+        color: #11111b;
+      }
     '';
   };
 }
