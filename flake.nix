@@ -17,7 +17,6 @@
       specialArgs = { inherit inputs; };
       modules = [ ./hosts/KOMI/configuration.nix ];
     };
-
     # User Rebuild: home-manager switch --flake .#shousuke
     homeConfigurations."shousuke" = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages."x86_64-linux";

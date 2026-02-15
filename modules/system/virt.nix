@@ -19,10 +19,16 @@
 #qemu.vhostUserPackages = with pkgs; [ virtiofsd ];
 #};
 programs.virt-manager.enable = true;
+ boot.kernel.sysctl = {
+    "net.ipv4.ip_forward" = 1;
+    "net.ipv6.conf.all.forwarding" = 1;
+};
 
 users.users.shousuke.extraGroups = [ "libvirtd" ];
 environment.systemPackages = with pkgs; [
   dnsmasq
+  bridge-utils
+  iptables
 ];
 
 networking.firewall.trustedInterfaces = [ "virbr0" ];

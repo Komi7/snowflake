@@ -6,6 +6,7 @@
     ./hyprland.nix
     ./zsh.nix
     ./wlogout.nix
+    ./cursor.nix
   ];
   
   home.username = "shousuke";
