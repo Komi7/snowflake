@@ -11,12 +11,18 @@
         spacing = 4;
         modules-left = [ "hyprland/workspaces" "hyprland/window" ];
         modules-center = [ "clock" ];
-        modules-right = [ "pulseaudio" "network" "cpu" "memory" "tray" ];
+        modules-right = [ "pulseaudio" "network" "cpu" "memory" "tray" "custom/power" ];
 
         "hyprland/workspaces" = {
           format = "{name}";
           on-click = "activate";
         };
+        
+        "custom/power" = {
+          format = "⏻";
+          on-click = "wlogout"; # Launches the full-screen menu
+          tooltip = false;
+          };
 
         "clock" = {
           format = "{:%I:%M %p}";

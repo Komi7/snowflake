@@ -5,11 +5,12 @@
     ./waybar.nix  
     ./hyprland.nix
     ./zsh.nix
+    ./wlogout.nix
   ];
   
   home.username = "shousuke";
   home.homeDirectory = "/home/shousuke";
-  home.stateVersion = "25.11"; 
+  home.stateVersion = "25.11";
 
   # Packages for Shousuke
   home.packages = with pkgs; [

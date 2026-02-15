@@ -23,6 +23,7 @@
     clang
     geany
     polkit_gnome
+    wlogout
   ];
 
   system.stateVersion = "25.11";
