@@ -9,6 +9,7 @@
 
   environment.systemPackages = with pkgs; [
     brave
+    firefox 
     kitty
     thunar
     rustdesk-flutter
@@ -17,6 +18,7 @@
     git
     wget
     curl
+    p7zip
     killall
     neovim
     cmake

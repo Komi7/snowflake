@@ -7,6 +7,7 @@
     ./zsh.nix
     ./wlogout.nix
     ./cursor.nix
+    ./thunar.nix
   ];
   
   home.username = "shousuke";

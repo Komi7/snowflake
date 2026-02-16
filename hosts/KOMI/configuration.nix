@@ -7,6 +7,7 @@
     ../../modules/system/steam.nix
     ../../modules/system/virt.nix
     ../../modules/system/fontconfig.nix
+    ../../modules/system/thunar.nix
   ];
 
   networking.hostName = "KOMI";
@@ -66,8 +67,6 @@ nix = {
 
 
   # Others services
-  	  services.gvfs.enable = true;
-	  services.tumbler.enable = true;
 	  services.udev.enable = true;
 	  services.envfs.enable = true;
 	  services.dbus.enable = true;
