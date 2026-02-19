@@ -10,6 +10,7 @@
   environment.systemPackages = with pkgs; [
     brave
     firefox 
+    bind
     kitty
     thunar
     rustdesk-flutter
