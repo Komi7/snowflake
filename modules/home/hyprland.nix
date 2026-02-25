@@ -18,7 +18,6 @@
 
       "$mod" = "SUPER";
       "$mod1" = "ALT";
-      
 
       exec-once = [
    #     "hyprpaper"
