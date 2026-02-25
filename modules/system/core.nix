@@ -6,6 +6,7 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   programs.zsh.enable = true;
+  
 
   environment.systemPackages = with pkgs; [
     brave
@@ -15,6 +16,7 @@
     thunar
     rustdesk-flutter
     mpv
+    discord
     fastfetch
     git
     wget

@@ -99,6 +99,7 @@
         "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
         "col.inactive_border" = "rgba(595959aa)";
       };
+      
 
 decoration = {
         rounding = 8;
@@ -110,13 +111,13 @@ decoration = {
           render_power = 3;
           color = "rgba(1a1a1aee)";
         };
-
+    
         blur = {
           enabled = true;
           size = 3;
           passes = 1;
         };
-      };
+      }; 
       
       input = {
         kb_layout = "us";
