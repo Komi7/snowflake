@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nvf.url = "github:NotAShelf/nvf";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -13,13 +14,17 @@
   };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, nvf, ... }@inputs: {
     # System Rebuild: sudo nixos-rebuild switch --flake .#KOMI
     nixosConfigurations.KOMI = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
-      modules = [ ./hosts/KOMI/configuration.nix ];
+      modules = [ ./hosts/KOMI/configuration.nix
+      nvf.nixosModules.default # Adds NVF to your system
+       ];
     };
+
+    
     # User Rebuild: home-manager switch --flake .#shousuke
     homeConfigurations."shousuke" = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages."x86_64-linux";

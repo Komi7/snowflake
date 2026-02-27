@@ -8,6 +8,8 @@
     ../../modules/system/virt.nix
     ../../modules/system/fontconfig.nix
     ../../modules/system/thunar.nix
+    ../../modules/system/neovim.nix
+    
   ];
 
   networking.hostName = "KOMI";

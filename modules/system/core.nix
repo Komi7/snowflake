@@ -8,6 +8,9 @@
   programs.zsh.enable = true;
 
   environment.systemPackages = with pkgs; [
+    ripgrep
+    fd
+    xclip
     inputs.zen-browser.packages."${pkgs.system}".default #zen Browser
     brave
     obsidian
@@ -24,7 +27,7 @@
     curl
     p7zip
     killall
-    neovim
+  #  neovim
     cmake
     clang
     geany
