@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
 
@@ -6,10 +6,11 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   programs.zsh.enable = true;
-  
 
   environment.systemPackages = with pkgs; [
+    inputs.zen-browser.packages."${pkgs.system}".default #zen Browser
     brave
+    obsidian
     firefox 
     bind
     kitty
