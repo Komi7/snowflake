@@ -4,7 +4,6 @@ let
   kalpurush = pkgs.stdenv.mkDerivation {
     pname = "kalpurush";
     version = "1.0";
-    # Point this to where you saved the .ttf file
     src = ./pkgs/fonts/Kalpurush.ttf; 
     
     dontUnpack = true;
@@ -15,12 +14,19 @@ let
   };
 in
 {
-  fonts.packages = [ kalpurush ];
+  fonts.packages = with pkgs; [ 
+    kalpurush
+    nerd-fonts.jetbrains-mono 
+    nerd-fonts.symbols-only
+    noto-fonts # This includes Bengali support by default
+  ];
+
   fonts.fontconfig = {
+    enable = true;
     defaultFonts = {
-      serif = [ "Noto Serif Bengali" "Kalpurush" ];
-      sansSerif = [ "Noto Sans Bengali" "Kalpurush" ];
+      serif = [ "Noto Serif Bengali" "Kalpurush" "JetBrainsMono Nerd Font" ];
+      sansSerif = [ "Noto Sans Bengali" "Kalpurush" "JetBrainsMono Nerd Font" ];
+      monospace = [ "JetBrainsMono Nerd Font" ];
     };
   };
 }
-

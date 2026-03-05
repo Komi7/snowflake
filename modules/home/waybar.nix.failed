@@ -1,0 +1,123 @@
+{ pkgs, ... }:
+{
+  programs.waybar = {
+    enable = true;
+    systemd.enable = true;
+    settings = {
+      mainBar = {
+        layer = "top";
+        position = "top";
+        height = 34;
+        margin = "10 15 0 15";
+        spacing = 10;
+
+        modules-left = [ "hyprland/window" ]; 
+        modules-center = [ "cpu" "memory" "hyprland/workspaces" "clock" ]; 
+        modules-right = [ "tray" "pulseaudio" "network" "battery" "custom/power" ];
+
+        "hyprland/window" = {
+          format = "{icon} {title}";
+          max-length = 30;
+          separate-outputs = true;
+          format-icons = {
+            "firefox" = "󰈹";
+            "zen-alpha" = "󰈹"; # Zen Browser class name is usually zen-alpha
+            "brave-browser" = "󰖟";
+            "kitty" = "󰄛";
+            "discord" = "󰙯";
+            "obsidian" = "󱓧";
+            "code" = "󰨞";
+            "thunar" = "󰉋";
+          };
+          rewrite = {
+            "^$" = "󱄅 Desktop";
+            "(.*) — Mozilla Firefox" = "Firefox";
+            "(.*) — Zen Browser" = "Zen";
+            "(.*) - Brave Search" = "Brave";
+            "(.*) - Discord" = "Discord";
+            "(.*) - Visual Studio Code" = "VS Code";
+            "(.*) - Obsidian (.*)" = "Obsidian";
+            "(.*) - kitty" = "Terminal";
+          };
+        };
+
+        "hyprland/workspaces" = {
+          format = "{icon}";
+          on-click = "activate";
+          format-icons = {
+            "active" = "";
+            "default" = "";
+          };
+        };
+
+        "cpu" = { 
+          format = " {usage}%"; 
+          interval = 2;
+        };
+
+        "memory" = { 
+          format = " {percentage}%"; 
+          interval = 2;
+        };
+
+        "clock" = {
+          format = "{:%H:%M - %A, %d/%m}";
+          tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+        };
+
+        "pulseaudio" = {
+          format = "{icon} {volume}%";
+          format-icons = { default = ["" "" ""]; };
+          on-click = "pavucontrol";
+        };
+
+        "network" = {
+          format-wifi = "";
+          format-ethernet = "󰈀";
+          format-disconnected = "⚠";
+        };
+
+        "custom/power" = {
+          format = "⏻";
+          on-click = "wlogout";
+        };
+      };
+    };
+
+    style = ''
+      * {
+        font-family: "JetBrainsMono Nerd Font";
+        font-size: 13px;
+        font-weight: bold;
+        border: none;
+      }
+
+      window#waybar {
+        background: transparent;
+      }
+
+      #window, #workspaces, #clock, #pulseaudio, #network, #cpu, #memory, #tray, #custom-power {
+        background: rgba(17, 17, 27, 0.7);
+        color: #cdd6f4;
+        padding: 0 16px;
+        margin: 0 4px;
+        border-radius: 100px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      #window {
+        color: #89b4fa;
+        background: rgba(30, 30, 46, 0.5);
+      }
+
+      #workspaces button.active {
+        color: #89b4fa;
+      }
+
+      #custom-power {
+        background: rgba(243, 139, 168, 0.2);
+        color: #f38ba8;
+      }
+    '';
+  };
+}
