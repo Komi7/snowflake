@@ -17,6 +17,7 @@
   # Packages for Shousuke
   home.packages = with pkgs; [
    #for hyprladn
+    papirus-icon-theme
     hyprlock
     hypridle
     hyprpaper

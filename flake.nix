@@ -11,25 +11,31 @@
     hyprland.url = "github:hyprwm/Hyprland";
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
-  };
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, nvf, ... }@inputs: {
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    nvf,
+    ...
+  } @ inputs: {
     # System Rebuild: sudo nixos-rebuild switch --flake .#KOMI
     nixosConfigurations.KOMI = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = { inherit inputs; };
-      modules = [ ./hosts/KOMI/configuration.nix
-      nvf.nixosModules.default # Adds NVF to your system
-       ];
+      specialArgs = {inherit inputs;};
+      modules = [
+        ./hosts/KOMI/configuration.nix
+        nvf.nixosModules.default
+      ];
     };
 
-    
     # User Rebuild: home-manager switch --flake .#shousuke
     homeConfigurations."shousuke" = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages."x86_64-linux";
-      extraSpecialArgs = { inherit inputs; };
-      modules = [ ./modules/home/home.nix ];
+      extraSpecialArgs = {inherit inputs;};
+      modules = [./modules/home/home.nix];
     };
   };
 }

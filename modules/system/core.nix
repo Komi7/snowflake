@@ -35,6 +35,9 @@
     wlogout
     networkmanagerapplet # Provides nm-connection-editor
     gsimplecal #calendar
+    #way de
+    pavucontrol
+    libnotify
   ];
 
   system.stateVersion = "25.11";
