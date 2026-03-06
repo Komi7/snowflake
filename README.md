@@ -5,13 +5,16 @@
 A modular, flake-based NixOS configuration for the KOMI workstation. Designed with a "Floating Island" aesthetic, high-performance NVIDIA optimizations, and full Bengali typography support.
 
 ## 🗺️ Table of Contents
-* [📸 Screen Preview](#-screen-preview)
+* [📸 Screen Preview](#️-Screen-Preview)
 * [⚠️ Hardware Warning](#️-hardware-warning--compatibility)
 * [📂 Project Structure](#-project-structure)
 * [✨ Features & Fixes](#-features--fixes)
 * [🚀 Quick Start](#-quick-start)
 * [🧹 Maintenance](#-maintenance-routine)
 * [📜 License](#-license)
+
+📸 Screen Preview
+![Preview](https://private-user-images.githubusercontent.com/109201315/559118746-5e6c7261-7f27-4697-b5b1-e3d0bf53d877.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzI3NzUwNDUsIm5iZiI6MTc3Mjc3NDc0NSwicGF0aCI6Ii8xMDkyMDEzMTUvNTU5MTE4NzQ2LTVlNmM3MjYxLTdmMjctNDY5Ny1iNWIxLWUzZDBiZjUzZDg3Ny5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMzA2JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDMwNlQwNTI1NDVaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT04OTM4NTRiNjFmNDZiNzJiNWFlNmM3NmUzZDNmNTNhZmY4MDFhNmMyNDQxNDljNjRkNmFhN2I4Nzk1ZDVhZGI1JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.QLlfzB5ZAvQe6f9JLeY8AyhmCmJJK972uOn6V3KKiok)
 
 ⚠️ Hardware Warning & Compatibility
 
