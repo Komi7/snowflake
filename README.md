@@ -103,6 +103,6 @@ nix flake update	Update all inputs (Kernel, Hyprland, etc.)
 sudo nix-collect-garbage -d	Deep clean old generations (Free space)
 fc-cache -fv	Refresh font cache for new icons
 systemctl --user reset-failed	Clear failed status logs for Waybar/Portals
-📜 License
 
+📜 License
 This project is licensed under the MIT License. Feel free to fork and rice!
