@@ -1,12 +1,8 @@
 { pkgs, ... }:
 {
-  # Adds playerctl so the media buttons work
-  home.packages = [ pkgs.playerctl ];
-
   programs.waybar = {
     enable = true;
     systemd.enable = true;
-
     settings = {
       mainBar = {
         layer = "top";
@@ -17,12 +13,10 @@
         margin-right = 15;
         spacing = 10;
 
-        # Layout Logic
-        modules-left = [ "hyprland/workspaces" ];
-        modules-center = [ "clock" "mpris" ]; 
+        modules-left = [ "hyprland/workspaces" ]; 
+        modules-center = [ "clock" ]; 
         modules-right = [ "group/hardware" "pulseaudio" "network" "tray" "custom/power" ];
 
-        # Workspace Configuration
         "hyprland/workspaces" = {
           format = "{icon}";
           on-click = "activate";
@@ -34,36 +28,13 @@
           };
         };
 
-        # Interactive Media Controller (mpris)
-        "mpris" = {
-          format = "{player_icon} {title} | <span color='#89b4fa'>󰒮 󰐊 󰒭</span>";
-          format-paused = "{player_icon} <i>{title}</i> | <span color='#f38ba8'>󰒮 󰐊 󰒭</span>";
-          player-icons = {
-            default = "󰎈";
-            spotify = "";
-            firefox = "";
-          };
-          on-click = "playerctl play-pause";
-          on-click-right = "playerctl next";
-          on-click-middle = "playerctl previous";
-          max-length = 35;
-        };
-
-        # Hardware Monitoring Group
         "group/hardware" = {
           orientation = "horizontal";
           modules = [ "cpu" "memory" ];
         };
 
-        "cpu" = { 
-          format = " {usage}%";
-          interval = 10;
-        };
-
-        "memory" = { 
-          format = " {percentage}%";
-          interval = 10;
-        };
+        "cpu" = { format = " {usage}%"; interval = 10; };
+        "memory" = { format = " {percentage}%"; interval = 10; };
 
         "clock" = {
           format = "{:%I:%M %p}";
@@ -99,16 +70,16 @@
       }
 
       window#waybar {
-        background: transparent;
+        background: transparent; /* Essential for the island look */
       }
 
       /* Unified Floating Island Styling */
-      #workspaces, #clock, #mpris, #pulseaudio, #network, #cpu, #memory, #tray, #custom-power {
-        background: rgba(17, 17, 27, 0.4);
+      #workspaces, #clock, #pulseaudio, #network, #cpu, #memory, #tray, #custom-power {
+        background: rgba(17, 17, 27, 0.4); /* High transparency for frosted effect */
         color: #cdd6f4;
         padding: 0 16px;
         margin: 0 4px;
-        border-radius: 100px;
+        border-radius: 100px; /* Maximum rounding for premium pill shapes */
         transition: all 0.3s ease;
       }
 
@@ -129,7 +100,7 @@
       }
 
       #custom-power {
-        background: rgba(243, 139, 168, 0.3);
+        background: rgba(243, 139, 168, 0.3); /* Soft transparent red */
         color: #f38ba8;
       }
 
