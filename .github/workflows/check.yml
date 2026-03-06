@@ -1,0 +1,45 @@
+name: "Snowflake CI"
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+jobs:
+  flake-check:
+    name: "Validate Flake & System"
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 1. Install Nix with Flakes and Experimental Features enabled
+      - name: Install Nix
+        uses: DeterminateSystems/determinate-nix-action@v4
+        with:
+          kvm: true
+
+      # 2. Setup Magic Nix Cache (Crucial for high-performance builds)
+      - name: Magic Nix Cache
+        uses: DeterminateSystems/magic-nix-cache-action@main
+
+      # 3. Basic Flake Syntax & Input Check
+      - name: Run nix flake check
+        run: nix flake check --show-trace
+
+      # 4. Specific System Evaluation (KOMI)
+      # This ensures your 'hosts/KOMI/configuration.nix' is valid
+      - name: Evaluate KOMI Configuration
+        run: |
+          nix eval .#nixosConfigurations.KOMI.config.system.build.toplevel.drvPath --show-trace
+
+      # 5. Check for updates/vulnerabilities in flake.lock
+      - name: Flake Checker
+        uses: DeterminateSystems/flake-checker-action@main
+        with:
+          fail-mode: true
