@@ -12,7 +12,7 @@ A modular, flake-based NixOS configuration for the KOMI workstation. Designed wi
 * [🚀 Quick Start](#-quick-start)
 * [🧹 Maintenance](#-maintenance-routine)
 * [📜 License](#-license)
-📸 Screen Preview
+
 
     The "Island" Waybar features real-time app icons and system telemetry.
 
