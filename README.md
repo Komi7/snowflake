@@ -1,3 +1,5 @@
+![Snowflake CI](https://github.com/komi7/snowflake/actions/workflows/check.yml/badge.svg)
+
 ❄️ Snowflake Config (KOMI7)
 
 A modular, flake-based NixOS configuration for the KOMI workstation. Designed with a "Floating Island" aesthetic, high-performance NVIDIA optimizations, and full Bengali typography support.
